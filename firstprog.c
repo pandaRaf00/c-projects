@@ -3,7 +3,7 @@
 int main(){
 	puts("this is my First_Program_in_C .\n");
 	for(int i = 0; i < 10; i++){
-		puts("HelloWolrd !\n");
+		puts("Hello Git-hub!\n");
 	}
 	return 0;
 }
