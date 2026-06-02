@@ -18,7 +18,7 @@ int main(){
     printf("|| Calculater ||\n");
     printf(" 1. Addition\n 2. subtraction\n 3. multiplication \n 4. dividation\n e. To Exit");
     scanf("%d", &choice);
-  while(choice == 'exit'){
+  while(choice == e){
     switch (choice)
     {
     case 1:
