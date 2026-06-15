@@ -1,33 +1,27 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
-int global_var;
-int global_initialized_var = 5;
+int main(int argc, char *argv[]){
+    char *char_ptr;  // A char pointer
+    int *int_ptr;    // An integer pointer
+    int mem_size;
 
-void function(){  //this is just Demo function
-    int stack_var;  //NOTICE this variable has the same name as the one in main
-    printf("the function is stack_var is at adress 0x%08x\n", &stack_var);
-}
+    if(argc < 2)
+        mem_size = 50;
+    else 
+        mem_size = atoi(argv[1]);
 
-int main(){
-    int stack_var;
-    static int static_initialized_var = 5;
-    static int static_var;
-    int *heap_var_ptr;
+        printf("\t[+] allocating %d bytes of memory on the heap of char_ptr\n", mem_size);
+        char_ptr = (char *) malloc(mem_size);  // Allocating heap memory
 
-    heap_var_ptr = (int *) malloc(4);
+        if(char_ptr == NULL){
+            fprintf(stderr, "Error: could not allocate heap memory.\n");
+            exit(-1);
+        }
 
-    //These variables are in the data segment.
-    printf("global_initialized_var is at address 0x%08x\n", &global_initialized_var);
-    printf("static_initilized_var is at address 0x%08x\n\n", &static_initialized_var);
-
-    //This variables are in the bss segment 
-    printf("static_var is at address 0x%08x\n", &static_var);
-    printf("global_var is at address 0x%08x\n\n", &global_var);
-
-    //this variables is in the heap segment 
-    printf("heap_var is at address 0x%08x\n\n", heap_var_ptr);
-
-    //these variables are in the stack segment .
-    printf("stack_var is at address 0x%08x\n", &stack_var);
-    function();
+    strcpy(char_ptr, "This is memory is located on the heap.");
+    printf("(char_ptr (%p) --> '%s'\n", char_ptr, char_ptr);
+    
+    
 }
