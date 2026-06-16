@@ -21,7 +21,7 @@ int main(int argc, char *argv[]){
         }
 
     strcpy(char_ptr, "This is memory is located on the heap.");
-    printf("(char_ptr (%p) --> '%s'\n", char_ptr, char_ptr);
+    printf("char_ptr (%p) --> '%s'\n", char_ptr, char_ptr);
     
     printf("\t[+] allocating 12 bytes of memory on the heap of int_ptr\n");
     int_ptr = (int *) malloc(12);  // Allocating heap memory again
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]){
     printf("\t[-] freeing char_ptr's heap memory....\n");
     free(char_ptr); 
 
-    printf("[+] allocating another 15 bytes for char_ptr\n");
+    printf("\t[+] allocating another 15 bytes for char_ptr\n");
     char_ptr = (char *) malloc(15);   // allocating more heap memory 
 
     if(char_ptr == NULL){
