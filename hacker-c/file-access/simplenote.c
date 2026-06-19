@@ -17,7 +17,7 @@ int main(int argc, char *argv[]){
 
     buffer = (char *) ec_malloc(100);
     datafile = (char *) ec_malloc(20);
-    strcpy(datafile, "/tmp/notes");
+    strcpy(datafile, "notes.txt");
 
     if(argc < 2)                 //If there aren't command line argruments
         usage(argv[0], datafile);//Display usage messege and exit.
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
         // *******     Opening FILE      **********
 
         fd = open(datafile, O_WRONLY|O_CREAT|O_APPEND, S_IRUSR|S_IWUSR);
-        if(fd == -1);
+        if(fd == -1)
         fatal("in main() while opening file");
         printf("[DEBUG] file descriptor is %d\n", fd);
 
