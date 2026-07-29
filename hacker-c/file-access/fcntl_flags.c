@@ -15,6 +15,11 @@ int main(int argc, char *argv[]){
     printf("\n");
     display_flags("O_WRONLY|O_APPEND|O_CREAT", O_WRONLY|O_APPEND|O_CREAT);
 }
+    void display_flags(char *label, unsigned int value){
+        printf("%s\t: %d\t", label, value);
+        binary_print(value);
+        printf("\n");
+    }
 
     void binary_print(unsigned int value){
         unsigned int mask = 0xff000000;   // Start with a mask for the highest byte.
